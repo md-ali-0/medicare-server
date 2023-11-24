@@ -1,9 +1,13 @@
 const express = require('express');
 const connectDB = require("./db/connectDB");
+const globalErrorHandler = require("./utils/globalErrorHandler");
 
 require('dotenv').config();
 const app =express();
 const port = process.env.PORT || 8080;
+
+// error handling middleware
+app.use(globalErrorHandler);
 
 app.get('/health', async(req,res)=>{
     res.send('MediCare is running')
