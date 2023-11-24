@@ -1,4 +1,5 @@
 const express = require('express');
+const connectDB = require("./db/connectDB");
 
 require('dotenv').config();
 const app =express();
@@ -16,6 +17,7 @@ app.all('*',(req,res,next)=>{
 })
 
 const main=async ()=>{
+    await connectDB()
     app.listen(port, ()=>{
         console.log(`MediCare Server is running on port ${port}`);
     })
