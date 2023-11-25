@@ -1,16 +1,21 @@
 const express = require('express');
 const connectDB = require("./db/connectDB");
+const applyMiddleware = require('./middlewares')
 const globalErrorHandler = require("./utils/globalErrorHandler");
 
 require('dotenv').config();
 const app =express();
 const port = process.env.PORT || 8080;
 const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user')
 const campRoutes = require('./routes/camp')
+
+applyMiddleware(app)
 
 // error handling middleware
 app.use(globalErrorHandler);
 app.use(authRoutes)
+app.use(userRoutes)
 app.use(campRoutes)
 
 app.get('/health', async(req,res)=>{
@@ -25,7 +30,7 @@ app.all('*',(req,res,next)=>{
 })
 
 const main=async ()=>{
-    // await connectDB()
+    await connectDB()
     app.listen(port, ()=>{
         console.log(`MediCare Server is running on port ${port}`);
     })
