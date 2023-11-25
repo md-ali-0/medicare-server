@@ -5,9 +5,13 @@ const globalErrorHandler = require("./utils/globalErrorHandler");
 require('dotenv').config();
 const app =express();
 const port = process.env.PORT || 8080;
+const authRoutes = require('./routes/auth')
+const campRoutes = require('./routes/camp')
 
 // error handling middleware
 app.use(globalErrorHandler);
+app.use(authRoutes)
+app.use(campRoutes)
 
 app.get('/health', async(req,res)=>{
     res.send('MediCare is running')
@@ -21,7 +25,7 @@ app.all('*',(req,res,next)=>{
 })
 
 const main=async ()=>{
-    await connectDB()
+    // await connectDB()
     app.listen(port, ()=>{
         console.log(`MediCare Server is running on port ${port}`);
     })
