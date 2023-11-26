@@ -9,6 +9,7 @@ const port = process.env.PORT || 8080;
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 const campRoutes = require('./routes/camp')
+const reviewsRoutes = require('./routes/review')
 
 applyMiddleware(app)
 
@@ -17,6 +18,7 @@ app.use(globalErrorHandler);
 app.use(authRoutes)
 app.use(userRoutes)
 app.use(campRoutes)
+app.use(reviewsRoutes)
 
 app.get('/health', async(req,res)=>{
     res.send('MediCare is running')

@@ -5,6 +5,6 @@ const verifyToken = require('../../middlewares/verifyToken')
 const router = require('express').Router()
 
 router.get('/camps',findAll)
-router.get('/popular-camps', verifyToken, findPopular)
+router.get('/popular-camps', findPopular)
 
 module.exports = router
