@@ -33,6 +33,10 @@ const campSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    status: {
+        type: String,
+        required: true,
+    },
     participantCount: {
         type: Number,
         required: true,
