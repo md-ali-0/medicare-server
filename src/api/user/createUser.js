@@ -1,5 +1,5 @@
 const addUser = require('../../lib/addUser')
-const createUser = async (req, res, next) => {
+const createUser = async (req, res) => {
     const user = req.body;
 
     try {

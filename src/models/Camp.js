@@ -12,8 +12,13 @@ const campSchema = new mongoose.Schema({
     fees: {
         type: Number,
         required: true,
+        default:0
     },
-    scheduledDateTime: {
+    scheduledDate: {
+        type: String,
+        required: true,
+    },
+    scheduledTime: {
         type: String,
         required: true,
     },
@@ -28,18 +33,25 @@ const campSchema = new mongoose.Schema({
     professionalsAttendanceCount: {
         type: Number,
         required: true,
+        default: 0
     },
     targetAudience: {
+        type: String,
+        required: true,
+    },
+    description: {
         type: String,
         required: true,
     },
     status: {
         type: String,
         required: true,
+        default: 'active'
     },
     participantCount: {
         type: Number,
         required: true,
+        default: 0
     },
 });
 

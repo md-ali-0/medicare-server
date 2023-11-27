@@ -1,10 +1,10 @@
 require("dotenv").config();
 const jwt = require('jsonwebtoken');
 const verifyToken = async (req, res, next) => {
-    const token = req.headers.token.split(' ')[1]
-    if (!token) {
+    if (!req.headers.token) {
         return res.status(401).send({message: 'unAuthorized access'})
     }
+    const token = req.headers.token.split(' ')[1]
     try {
         const decoded = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
         req.user= decoded
