@@ -1,7 +1,7 @@
-const Camp = require("../models/Camp");
+const UpComingCamp = require("../models/UpComingCamp");
 
-const findUpcomingCamps = async (filter) => {
-    const cursor = await Camp.find(filter).sort();
+const findUpcomingCamps = async () => {
+    const cursor = await UpComingCamp.find()
     return cursor;
 };
 
