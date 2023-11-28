@@ -5,8 +5,10 @@ const findSingle = require('../../api/camps/findSingle')
 const findAvailable = require('../../api/camps/findAvailable')
 const addRegistered = require('../../api/camps/addRegistered')
 const createCamp = require('../../api/camps/createCamp')
+const updateCamp = require('../../api/camps/updateCamp')
 const verifyToken = require('../../middlewares/verifyToken')
-
+const verifyAdmin = require('../../middlewares/verifyAdmin')
+const verifyOrganizer = require('../../middlewares/verifyOrganizer')
 const router = require('express').Router()
 
 router.get('/camps',findAll)
@@ -15,6 +17,7 @@ router.get('/upcoming-camps', findUpcoming)
 router.get('/available-camps', verifyToken, findAvailable)
 router.get('/camp-details/:campId', findSingle)
 router.post('/add-registered-camp', verifyToken, addRegistered)
-router.post('/add-a-camp', verifyToken, createCamp)
+router.post('/add-a-camp', verifyToken, verifyOrganizer, createCamp)
+router.put('/update-camp/:campId', verifyToken, verifyOrganizer, updateCamp)
 
 module.exports = router

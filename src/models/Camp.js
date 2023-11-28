@@ -53,6 +53,10 @@ const campSchema = new mongoose.Schema({
         required: true,
         default: 0
     },
+    createdBy:{
+        type: String,
+        required: true,
+    }
 });
 
 const Camp = mongoose.model("camp", campSchema);
