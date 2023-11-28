@@ -8,6 +8,7 @@ const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const campRoutes = require("./routes/camp");
 const reviewsRoutes = require("./routes/review");
+const paymentRoutes = require("./routes/payment");
 
 applyMiddleware(app);
 
@@ -16,6 +17,7 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(campRoutes);
 app.use(reviewsRoutes);
+app.use(paymentRoutes);
 
 app.get("/health", async (req, res) => {
     res.send("MediCare is running");

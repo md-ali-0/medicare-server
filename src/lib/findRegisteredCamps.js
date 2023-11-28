@@ -6,6 +6,9 @@ const findPopularCamps = async (filter) => {
     if (filter.createdBy) {
         query.createdBy = filter.createdBy
     }
+    if (filter.email) {
+        query.email = filter.email
+    }
     const cursor = await RegisteredCamp.find(query).sort();
     return cursor;
 };
