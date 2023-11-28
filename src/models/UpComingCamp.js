@@ -46,7 +46,7 @@ const campSchema = new mongoose.Schema({
     status: {
         type: String,
         required: true,
-        default: 'upcoming'
+        default: 'pending'
     },
     participantCount: {
         type: Number,
