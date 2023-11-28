@@ -54,6 +54,10 @@ const newCampRegisterSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  venueLocation: {
+    type: String,
+    required: true
+  },
   paymentStatus: {
     type: String,
     enum: ['pending', 'completed'],
@@ -63,7 +67,12 @@ const newCampRegisterSchema = new mongoose.Schema({
     type: String,
     enum: ['pending', 'confirmed', 'rejected'],
     default: 'pending'
-  }
+  },
+  createdBy: {
+    type: String,
+    required: true,
+    default: 'admin@gmail.com'
+  },
 });
 
 const RegisteredCamp = mongoose.model('registeredCamp', newCampRegisterSchema);
