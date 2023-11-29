@@ -9,6 +9,12 @@ const findPopularCamps = async (filter) => {
     if (filter.email) {
         query.email = filter.email
     }
+    if (filter.paymentStatus) {
+        query.paymentStatus = filter.paymentStatus
+    }
+    if (filter.confirmationStatus) {
+        query.confirmationStatus = filter.confirmationStatus
+    }
     const cursor = await RegisteredCamp.find(query).sort();
     return cursor;
 };

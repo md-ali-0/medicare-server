@@ -33,6 +33,10 @@ const paymentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    transactionId:{
+        type: String,
+        required: true,
+    },
     createdBy: {
         type: String,
         required: true,
