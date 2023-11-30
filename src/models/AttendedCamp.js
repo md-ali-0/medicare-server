@@ -37,8 +37,18 @@ const newAttendedCampSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  campId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UpComingCamp',
+    required: true
+  },
   image: {
     type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    enum: ['participant', 'professional'],
     required: true
   },
   scheduledDate: {

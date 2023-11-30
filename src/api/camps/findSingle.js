@@ -2,7 +2,6 @@ const findSingleCamp = require("../../lib/findSingleCamp");
 const ObjectId = require('mongoose').Types.ObjectId
 const findSingle = async (req, res) => {
     const id = req.params.campId;
-    console.log(id);
     const filter = {
         _id: new ObjectId(id)
     }

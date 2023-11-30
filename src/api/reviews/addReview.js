@@ -1,9 +1,9 @@
-const addAReview = require("../../lib/addaReview");
+const addNewReview = require("../../lib/addNewReview");
 
 const addReview = async(req, res)=>{
     const review = req.body;
     try {
-        const createReview = await addAReview(review)
+        const createReview = await addNewReview(review)
         res.send(createReview)
     } catch (error) {
         throw new Error('addReview Error')

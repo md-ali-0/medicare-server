@@ -1,6 +1,6 @@
 const Review = require('../models/Review');
 
-const addAReview = async(review)=>{
+const addNewReview = async(review)=>{
     const newReview = new Review(review)
     try {
         const cursor = newReview.save()
@@ -10,4 +10,4 @@ const addAReview = async(review)=>{
     }
 }
 
-module.exports = addAReview
+module.exports = addNewReview
