@@ -37,7 +37,7 @@ organizer@gmail.com
 4qeaKeRGwi8@iYB1
 ```
 
-### ** HealthCare Professionals Credential **:
+### HealthCare Professionals Credential:
 ```bash
 professional@gmail.com
 ```
